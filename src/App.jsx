@@ -6,7 +6,7 @@ import { login, logout } from './store/authSlice'
 import { Header, Footer, AuthLayout } from './components'
 import { Outlet, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home, LoginPage, SignupPage, AllPosts, AddPost, EditPost, Post } from './pages'
-
+import Post1 from "./pages/Post1";
 function Layout() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
@@ -108,6 +108,10 @@ const router = createBrowserRouter([
           </AuthLayout>
         ),
       },
+      {
+  path: "/post/react-appwrite-blog",
+  element: <Post1 />,
+}
     ],
   },
 ])

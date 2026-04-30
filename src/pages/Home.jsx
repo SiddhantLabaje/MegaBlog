@@ -119,6 +119,11 @@ function Home() {
             <div className="py-10">
                 <Container>
                     <div className="flex items-center justify-between mb-8">
+                        <p className="mb-6 text-indigo-600 font-medium">
+  <Link to="/post/react-appwrite-blog">
+    Read: How to Build Blog with React & Appwrite
+  </Link>
+</p>
                         <div>
                             <h1 className="text-2xl font-bold text-slate-900">Latest Posts</h1>
                             <p className="text-sm text-slate-500 mt-1">{posts.length} post{posts.length !== 1 ? 's' : ''} published</p>

@@ -19,6 +19,7 @@ A full-stack blog application built with **React, Redux Toolkit, and Appwrite**,
 * 📱 Responsive UI with Tailwind CSS
 * 🔒 Protected routes using React Router
 * ⚡ Fast build using Vite
+* 🔍 SEO optimized (meta tags, OG, Twitter, sitemap, robots.txt)
 
 ---
 
@@ -28,13 +29,17 @@ A full-stack blog application built with **React, Redux Toolkit, and Appwrite**,
 
 * React 19
 * Redux Toolkit
-* React Router DOM
-* Tailwind CSS
+* React Router DOM v7
+* Tailwind CSS v4
 * Vite
 
 ### Backend
 
 * Appwrite (Auth, Database, Storage)
+
+### Editor
+
+* TinyMCE
 
 ---
 
@@ -47,13 +52,17 @@ src/
 ├── pages/           # Page-level components
 ├── store/           # Redux store & slices
 ├── conf/            # Environment config
+public/
+├── robots.txt       # Crawler instructions
+├── sitemap.xml      # Static sitemap
+└── og-image.png     # Social share image (1200×630)
 ```
 
 ---
 
 ## ⚙️ Environment Variables
 
-Create a `.env` file in the root:
+Create a `.env` file in the root (no quotes around values):
 
 ```
 VITE_APPWRITE_URL=https://nyc.cloud.appwrite.io/v1
@@ -75,23 +84,17 @@ git clone https://github.com/SiddhantLabaje/MegaBlog.git
 cd MegaBlog
 ```
 
----
-
 ### 2️⃣ Install dependencies
 
 ```
 npm install
 ```
 
----
-
 ### 3️⃣ Run locally
 
 ```
 npm run dev
 ```
-
----
 
 ### 4️⃣ Build for production
 
@@ -103,8 +106,42 @@ npm run build
 
 ## 🌍 Deployment
 
-* Frontend hosted on Render
-* Backend powered by Appwrite
+* Frontend hosted on **Render** (Static Site)
+* Backend powered by **Appwrite Cloud**
+* Add a rewrite rule in Render: `/* → /index.html` for client-side routing
+
+---
+
+## 🔍 SEO Setup
+
+### File locations
+
+| File | Location | Purpose |
+|---|---|---|
+| `index.html` | project root | Base meta tags, OG, Twitter |
+| `public/robots.txt` | `public/` | Crawler instructions |
+| `public/sitemap.xml` | `public/` | Static sitemap |
+| `src/components/SEO.jsx` | `src/components/` | Per-page dynamic meta tags |
+
+### How the SEO component works
+
+```jsx
+import { SEO } from '../components'
+
+<SEO
+  title="Page Title"
+  description="Page description under 155 chars."
+  path="/page-path"
+  type="article"
+/>
+```
+
+### Google Search Console
+
+1. Go to https://search.google.com/search-console
+2. Add property → `https://megablog-1-ankx.onrender.com`
+3. Verify via HTML tag → paste into `index.html` `<head>`
+4. Submit sitemap: `https://megablog-1-ankx.onrender.com/sitemap.xml`
 
 ---
 
@@ -112,23 +149,25 @@ npm run build
 
 * Add your deployed domain in Appwrite → **Settings → Platforms**
 * Add your domain in TinyMCE → **Allowed Domains**
-* Do not upload `.env` file to GitHub
+* Do **not** upload `.env` to GitHub
+* `.env` values must **not** be wrapped in quotes
 
 ---
 
 ## 🧠 Learnings
 
-* Integration of frontend with backend-as-a-service (Appwrite)
+* Integration of frontend with Appwrite BaaS
 * Handling authentication and protected routes
-* Managing global state using Redux Toolkit
-* Handling file uploads and image rendering
-* Debugging real-world deployment issues (CORS, API keys)
+* Managing global state with Redux Toolkit
+* File uploads and image rendering via Appwrite Storage
+* Debugging real-world issues (CORS, SDK v24 API changes, Redux serialization)
+* Frontend-only SEO with dynamic meta tags
 
 ---
 
 ## 📸 Screenshots
 
-(Add your screenshots here)
+*(Add your screenshots here)*
 
 ---
 

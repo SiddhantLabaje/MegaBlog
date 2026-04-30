@@ -12,6 +12,7 @@ import AuthLayout from "./AuthLayout";
 import Login from "./Login";
 import Signup from "./Signup";
 import PostForm from "./PostForm";
+import SEO from "./SEO";
 
 export {
     Header,
@@ -28,4 +29,5 @@ export {
     Login,
     Signup,
     PostForm,
+    SEO,
 }

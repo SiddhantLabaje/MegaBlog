@@ -5,7 +5,7 @@ function Logo() {
                 <span className="text-white font-bold text-sm">M</span>
             </div>
             <span className="text-xl font-bold text-slate-800 tracking-tight">
-                Mega<span className="text-indigo-600">Blog</span>
+                Mega<span className="text-indigo-600">Blogssssss</span>
             </span>
         </div>
     )

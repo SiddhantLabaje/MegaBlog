@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /login
+Allow: /signup
+Allow: /all-posts
+Allow: /post/
+
+# Block authenticated-only write routes from indexing
+Disallow: /add-post
+Disallow: /edit-post/
+
+Sitemap: https://megablog-1-ankx.onrender.com/sitemap.xml

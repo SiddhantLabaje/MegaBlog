@@ -102,7 +102,10 @@ const router = createBrowserRouter([
       },
            {
   path: "/post/react-appwrite-blog",
-  element: <Post1 />,
+  element: (
+    <AuthLayout authentication>
+            <Post1 />
+          </AuthLayout>),
 },
       {
         path: '/post/:slug',
